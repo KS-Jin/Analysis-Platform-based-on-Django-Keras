@@ -20,7 +20,7 @@ AWIN Lab 多維生醫感測資訊計畫之平台雛形
 列出各模型對於辨識的準確率  
  
 ## 分類器比較
-![image](https://github.com/KS-Jin/Analysis-Platform-based-on-Django-Keras/blob/master/pic/pic2.jpg)  
+![image](https://github.com/KS-Jin/Analysis-Platform-based-on-Django-Keras/blob/master/pic/pic2.JPG)    
 可以看出使用 LSTM模型在此問題的效果比傳統分類器還要精確  
 
 ## 其他資料
