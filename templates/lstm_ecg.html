@@ -1,0 +1,68 @@
+{% extends 'masterpage.html' %}
+{% block content %}
+<link href="http://developer.avego.com/mobilesite/bootstrap-3.0.0/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+	  
+
+<body>
+	<title>ECG analysis</title>
+    <div class="container">
+      <div class="header clearfix">
+
+        <h3 class="text-muted">ECG Analysis Platform</h3>
+      </div>   
+	  
+	<div id="app">
+		<p>Input Data: {{ ctx }}</p>
+		<form action="/lstm_ecg" method="post">
+		{% csrf_token %}
+			<input type="text" name="csv">
+			<input type="submit" value="Submit">
+		</form>
+	<p></p>
+	<table class="table table-striped">
+	<caption></caption>
+	<thead>
+		<tr>
+			<th>Classifier</th>
+			<th>Accuracy</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>LSTM</td>
+			<td>{{acc}}</td>
+		</tr>
+		<tr>
+			<td>Naive Bayes</td>
+			<td>{{gnb}}</td>
+		</tr>
+		<tr>
+			<td>LinearSVC</td>
+			<td>{{svc}}</td>
+		</tr>
+		<tr>
+			<td>KNN</td>
+			<td>{{knn}}</td>
+		</tr>
+		<tr>
+			<td>RandomForest</td>
+			<td>{{RF}}</td>
+		</tr>
+	</tbody>
+	</table>
+	<div>
+ <footer class="footer">
+    <p>&copy; Jin 2018</p>
+ </footer>	
+</body>
+<script>
+new Vue({
+  delimiters: ['[[', ']]'],
+  el: '#app',
+  data: {
+    title: 'Welcome to Machine Learning' ,
+  }
+})
+</script>
+{% endblock %}
